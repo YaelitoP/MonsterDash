@@ -15,7 +15,8 @@ func init(player: Player) -> void:
 	if initial_state:
 		current_state = initial_state
 		current_state.enter()
-
+	else:
+		current_state = states.idle
 func process_physics(delta: float) -> void:
 	if current_state:
 		current_state.process_physics(delta)

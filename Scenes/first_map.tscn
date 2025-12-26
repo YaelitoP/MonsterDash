@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://cxbmqocbyl76b"]
+[gd_scene load_steps=3 format=3 uid="uid://cxbmqocbyl76b"]
+
+[ext_resource type="PackedScene" uid="uid://cts51u1y0omoj" path="res://Scenes/player.tscn" id="1_kj06s"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jv0l6"]
 
 [node name="FirstMap" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 9)
+shape = SubResource("WorldBoundaryShape2D_jv0l6")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_kj06s")]
+position = Vector2(0, -22)
