@@ -4,14 +4,15 @@ class_name StateMachine
 @export var initial_state: State
 var current_state: State
 var states: Dictionary = {}
-
+var parent: Player
 func init(player: Player) -> void:
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.player = player
 			child.transitioned.connect(_on_state_transition)
-	
+			parent = player
+
 	if initial_state:
 		current_state = initial_state
 		current_state.enter()
@@ -31,3 +32,4 @@ func _on_state_transition(new_state_name: String) -> void:
 		current_state.exit()
 		new_state.enter()
 		current_state = new_state
+		parent.state_name = new_state_name.to_lower()

@@ -1,14 +1,17 @@
 extends GroundedState
 
 func enter() -> void:
-	player.anim_playback.travel("idle")
-	# Frenamos al jugador
 	player.velocity.x = 0
+	
 
 func process_physics(delta: float) -> void:
+	if Input.is_action_just_pressed("dash"):
+		transitioned.emit("Dash")
+		return
+		
 	super.process_physics(delta)
-	
-	if Input.get_axis("left", "right")!= 0:
+	if player.is_on_wall_only():
+		transitioned.emit("wall")
+		return
+	if Input.get_axis("left", "right") != 0:
 		transitioned.emit("Run")
-	
-	player.move_and_slide()
