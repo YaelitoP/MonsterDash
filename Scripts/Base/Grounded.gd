@@ -1,7 +1,7 @@
 extends State
 class_name GroundedState
 
-func process_physics(_delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if !player.is_on_floor():
 		transitioned.emit("Air")
 		return

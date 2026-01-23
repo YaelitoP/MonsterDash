@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	if not get_parent(): return
 	
 	var target_pos = get_parent().global_position
-	var current_state = get_parent().state_name
+	var current_state = get_parent().stateName
 	
 	var speed_x = horizontal_speed
 	var speed_y = vertical_speed

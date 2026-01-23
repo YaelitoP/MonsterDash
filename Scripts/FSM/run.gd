@@ -1,11 +1,14 @@
 extends GroundedState
 
-func process_physics(_delta: float) -> void:
+func enter() -> void:
+	player.animNode = "run"
+	
+func physics_update(_delta: float) -> void:
 	player.move_and_slide()
 	if Input.is_action_just_pressed("dash"):
 		transitioned.emit("Dash")
 		return
-	super.process_physics(_delta) 
+	super.physics_update(_delta) 
 	var direction = Input.get_axis("left", "right")
 	
 	if direction == 0:

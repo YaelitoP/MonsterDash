@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=3 uid="uid://cts51u1y0omoj"]
+[gd_scene load_steps=133 format=3 uid="uid://cts51u1y0omoj"]
 
 [ext_resource type="Texture2D" uid="uid://c526b0hjlwxok" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Dash.png" id="1_7dp3o"]
 [ext_resource type="Script" uid="uid://bbtjl72mldf17" path="res://Scripts/Player/player.gd" id="1_h4iuc"]
@@ -114,78 +114,15 @@ transitions = ["Start", "Stand", SubResource("AnimationNodeStateMachineTransitio
 graph_offset = Vector2(63, -64)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wpjfl"]
-animation = &"wallClimb"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfarp"]
-animation = &"wallHung"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y6uwr"]
 animation = &"wallSlide"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ax3m3"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8eeqe"]
-advance_mode = 2
-advance_expression = "state_name == \"wallSlide\""
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5x828"]
-advance_mode = 2
-advance_expression = "state_name == \"wallHung\""
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c1k8q"]
-advance_mode = 2
-advance_expression = "state_name == \"wallClimb\""
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_57lvd"]
-advance_mode = 2
-advance_expression = "state_name == \"wallClimb\""
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ie7r7"]
-advance_mode = 2
-advance_expression = "state_name == \"wallSlide\""
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vq3lt"]
-advance_mode = 2
-advance_expression = "state_name == \"wallHung\""
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pukcj"]
-switch_mode = 2
-advance_mode = 2
-advance_expression = "state_name!= \"wallClimb\" and state_name!= \"wallHung\" and state_name!= \"wallSlide\""
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1htnp"]
-advance_mode = 2
-advance_expression = "state_name!= \"wallClimb\" and state_name!= \"wallHung\" and state_name!= \"wallSlide\""
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m376e"]
-advance_mode = 2
-advance_expression = "state_name!= \"wallClimb\" and state_name!= \"wallHung\" and state_name!= \"wallSlide\""
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_83xs0"]
-state_machine_type = 1
-states/End/position = Vector2(895, 68)
-states/Start/position = Vector2(107, 68)
-states/wallClimb/node = SubResource("AnimationNodeAnimation_wpjfl")
-states/wallClimb/position = Vector2(335, 230)
-states/wallHung/node = SubResource("AnimationNodeAnimation_vfarp")
-states/wallHung/position = Vector2(515, 68)
-states/wallSlide/node = SubResource("AnimationNodeAnimation_y6uwr")
-states/wallSlide/position = Vector2(335, -107)
-transitions = ["Start", "wallSlide", SubResource("AnimationNodeStateMachineTransition_ax3m3"), "wallHung", "wallSlide", SubResource("AnimationNodeStateMachineTransition_8eeqe"), "wallSlide", "wallHung", SubResource("AnimationNodeStateMachineTransition_5x828"), "wallHung", "wallClimb", SubResource("AnimationNodeStateMachineTransition_c1k8q"), "wallSlide", "wallClimb", SubResource("AnimationNodeStateMachineTransition_57lvd"), "wallClimb", "wallSlide", SubResource("AnimationNodeStateMachineTransition_ie7r7"), "wallClimb", "wallHung", SubResource("AnimationNodeStateMachineTransition_vq3lt"), "wallClimb", "End", SubResource("AnimationNodeStateMachineTransition_pukcj"), "wallHung", "End", SubResource("AnimationNodeStateMachineTransition_1htnp"), "wallSlide", "End", SubResource("AnimationNodeStateMachineTransition_m376e")]
-graph_offset = Vector2(-85.625, -153)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bi64h"]
 advance_mode = 2
-advance_expression = "state_name == \"dash\""
+advance_expression = "animNode == \"dash\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qpa8y"]
 advance_mode = 2
-advance_expression = "velocity.y < 0 || !is_on_floor()"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_olqyp"]
-advance_mode = 2
-advance_expression = "state_name == \"dash\""
+advance_expression = "!is_on_floor() and animNode == \"air\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fs7ks"]
 advance_mode = 2
@@ -197,53 +134,57 @@ advance_expression = "!is_on_floor()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ijsl"]
 advance_mode = 2
-advance_expression = "state_name == \"dash\""
+advance_expression = "animNode == \"dash\""
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_83xs0"]
+advance_mode = 2
+advance_expression = "!animNode == \"dash\" and !is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wohnl"]
+advance_mode = 2
+advance_expression = "!animNode == \"dash\""
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_olqyp"]
+advance_mode = 2
+advance_expression = "animNode == \"dash\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p1odr"]
 advance_mode = 2
 advance_expression = "is_on_floor()"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_83xs0"]
-advance_mode = 2
-advance_expression = "!state_name == \"dash\" and !is_on_floor()"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wohnl"]
-advance_mode = 2
-advance_expression = "!state_name == \"dash\" and is_on_floor()"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11gg7"]
 advance_mode = 2
-advance_expression = "is_on_wall_only()"
+advance_expression = "animNode == \"wallSlide\" and is_on_wall_only()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sbwqj"]
 advance_mode = 2
-advance_expression = "state_name!= \"wallClimb\" and state_name!= \"wallHung\" and state_name!= \"wallSlide\" and !is_on_floor()"
+advance_expression = "is_on_floor() and animNode != \"wallSlide\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7ldla"]
 advance_mode = 2
-advance_expression = "is_on_wall_only()"
+advance_expression = "!is_on_floor() and animNode == \"air\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r7t2e"]
 advance_mode = 2
-advance_expression = "state_name!= \"wallClimb\" and state_name!= \"wallHung\" and state_name!= \"wallSlide\" and is_on_floor()"
+advance_expression = "animNode == \"wallSlide\" and is_on_wall()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nmr2m"]
 advance_mode = 2
-advance_expression = "is_on_wall_only()"
+advance_expression = "animNode == \"wallSlide\" and is_on_wall()"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_olqyp"]
 states/Air/node = SubResource("AnimationNodeStateMachine_8gxox")
-states/Air/position = Vector2(667, 22)
+states/Air/position = Vector2(689, -16)
 states/Dash/node = SubResource("AnimationNodeAnimation_2ijsl")
 states/Dash/position = Vector2(170, -150)
 states/End/position = Vector2(899, 100)
 states/Ground/node = SubResource("AnimationNodeStateMachine_7ldla")
 states/Ground/position = Vector2(170, -16)
-states/Start/position = Vector2(-372, 107)
-states/WallSlide/node = SubResource("AnimationNodeStateMachine_83xs0")
-states/WallSlide/position = Vector2(170, 179)
-transitions = ["Start", "Dash", SubResource("AnimationNodeStateMachineTransition_bi64h"), "Start", "Air", SubResource("AnimationNodeStateMachineTransition_qpa8y"), "Air", "Dash", SubResource("AnimationNodeStateMachineTransition_olqyp"), "Start", "Ground", SubResource("AnimationNodeStateMachineTransition_fs7ks"), "Ground", "Air", SubResource("AnimationNodeStateMachineTransition_l6n3p"), "Ground", "Dash", SubResource("AnimationNodeStateMachineTransition_2ijsl"), "Air", "Ground", SubResource("AnimationNodeStateMachineTransition_p1odr"), "Dash", "Air", SubResource("AnimationNodeStateMachineTransition_83xs0"), "Dash", "Ground", SubResource("AnimationNodeStateMachineTransition_wohnl"), "Start", "WallSlide", SubResource("AnimationNodeStateMachineTransition_11gg7"), "WallSlide", "Air", SubResource("AnimationNodeStateMachineTransition_sbwqj"), "Air", "WallSlide", SubResource("AnimationNodeStateMachineTransition_7ldla"), "WallSlide", "Ground", SubResource("AnimationNodeStateMachineTransition_r7t2e"), "Ground", "WallSlide", SubResource("AnimationNodeStateMachineTransition_nmr2m")]
-graph_offset = Vector2(-284, -205)
+states/Start/position = Vector2(-371, 107)
+states/wallSlide/node = SubResource("AnimationNodeAnimation_wpjfl")
+states/wallSlide/position = Vector2(170, 166)
+transitions = ["Start", "Dash", SubResource("AnimationNodeStateMachineTransition_bi64h"), "Start", "Air", SubResource("AnimationNodeStateMachineTransition_qpa8y"), "Start", "Ground", SubResource("AnimationNodeStateMachineTransition_fs7ks"), "Ground", "Air", SubResource("AnimationNodeStateMachineTransition_l6n3p"), "Ground", "Dash", SubResource("AnimationNodeStateMachineTransition_2ijsl"), "Dash", "Air", SubResource("AnimationNodeStateMachineTransition_83xs0"), "Dash", "Ground", SubResource("AnimationNodeStateMachineTransition_wohnl"), "Air", "Dash", SubResource("AnimationNodeStateMachineTransition_olqyp"), "Air", "Ground", SubResource("AnimationNodeStateMachineTransition_p1odr"), "Start", "wallSlide", SubResource("AnimationNodeStateMachineTransition_11gg7"), "wallSlide", "Ground", SubResource("AnimationNodeStateMachineTransition_sbwqj"), "wallSlide", "Air", SubResource("AnimationNodeStateMachineTransition_7ldla"), "Air", "wallSlide", SubResource("AnimationNodeStateMachineTransition_r7t2e"), "Ground", "wallSlide", SubResource("AnimationNodeStateMachineTransition_nmr2m")]
+graph_offset = Vector2(182, -295)
 
 [sub_resource type="Animation" id="Animation_l6n3p"]
 resource_name = "Dash"
@@ -551,6 +492,9 @@ _data = {
 radius = 11.0
 height = 42.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olqyp"]
+size = Vector2(25, 3)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_11gg7"]
 atlas = ExtResource("1_7dp3o")
 region = Rect2(0, 40, 120, 40)
@@ -755,15 +699,15 @@ region = Rect2(720, 40, 120, 40)
 atlas = ExtResource("13_0gysh")
 region = Rect2(0, 40, 120, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hseb1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wohnl"]
 atlas = ExtResource("14_vfarp")
 region = Rect2(0, 40, 120, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vinow"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_36dho"]
 atlas = ExtResource("14_vfarp")
 region = Rect2(120, 40, 120, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_awsf5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
 atlas = ExtResource("14_vfarp")
 region = Rect2(240, 40, 120, 40)
 
@@ -994,13 +938,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hseb1")
+"texture": SubResource("AtlasTexture_wohnl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vinow")
+"texture": SubResource("AtlasTexture_36dho")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_awsf5")
+"texture": SubResource("AtlasTexture_yh6i2")
 }],
 "loop": true,
 "name": &"WallSlide",
@@ -1047,22 +991,24 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 0)
 shape = SubResource("CapsuleShape2D_8gxox")
 
-[node name="Visuals" type="Marker2D" parent="."]
+[node name="Rays" type="Node2D" parent="CollisionShape2D"]
+position = Vector2(-3, 10)
+
+[node name="wallCheck" type="ShapeCast2D" parent="CollisionShape2D/Rays"]
 position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_olqyp")
+target_position = Vector2(0, 0)
+collision_mask = 2
+
+[node name="Visuals" type="Marker2D" parent="."]
+scale = Vector2(-1, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 position = Vector2(6, -1)
 sprite_frames = SubResource("SpriteFrames_v84ne")
-animation = &"fall"
-frame = 1
-
-[node name="LedgeCheck" type="RayCast2D" parent="Visuals"]
-position = Vector2(2, -12)
-target_position = Vector2(15, 0)
-collision_mask = 2
+animation = &"WallSlide"
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource("16_fd4e3")
@@ -1078,9 +1024,9 @@ script = ExtResource("18_fs7ks")
 [node name="air" type="Node" parent="FSM"]
 script = ExtResource("19_l6n3p")
 
-[node name="wall" type="Node" parent="FSM" node_paths=PackedStringArray("ledgeCheck")]
+[node name="wall" type="Node" parent="FSM" node_paths=PackedStringArray("wallShapeCast")]
 script = ExtResource("19_olqyp")
-ledgeCheck = NodePath("../../Visuals/LedgeCheck")
+wallShapeCast = NodePath("../../CollisionShape2D/Rays/wallCheck")
 
 [node name="dash" type="Node" parent="FSM"]
 script = ExtResource("19_fs7ks")

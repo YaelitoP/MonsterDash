@@ -1,7 +1,7 @@
 extends State
 class_name AirState
 
-func process_physics(delta: float) -> void:
+func physics_update(delta: float) -> void:
 	player.velocity.y += gravity * delta
 	
 	if player.is_on_wall_only():

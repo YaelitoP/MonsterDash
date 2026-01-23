@@ -1,36 +1,32 @@
 class_name PlayerDash
 extends State
 
-@export var dash_speed: float = 800.0
-@export var dash_duration: float = 0.2
-var dash_direction: Vector2 = Vector2.ZERO
+@export var dashSpeed: float = 800.0
+@export var dashDuration: float = 0.2
+var dashDirection: Vector2 = Vector2.ZERO
+var inputDir = Input.get_axis("left", "right")
 
 func enter() -> void:
-	var input_dir = Input.get_axis("left", "right")
-	if input_dir!= 0:
-		dash_direction = Vector2(sign(input_dir), 0)
+	player.animNode = "dash"
+	
+	if inputDir!= 0:
+		dashDirection = Vector2(sign(inputDir), 0)
 	else:
-		dash_direction = Vector2(player.visuals.scale.x, 0)
+		dashDirection = Vector2(player.visuals.scale.x, 0)
 	
-	player.visuals.scale.x = dash_direction.x
+	player.visuals.scale.x = dashDirection.x
 	
-	player.velocity = dash_direction * dash_speed
+	player.velocity = dashDirection * dashSpeed
 	
-	player.anim_playback.travel("Dash")
-
-	await get_tree().create_timer(dash_duration).timeout
+	await get_tree().create_timer(dashDuration).timeout
 	_on_dash_finished()
 
-func process_physics(_delta: float) -> void:
-	player.velocity = dash_direction * dash_speed
+func physics_update(_delta: float) -> void:
+	player.velocity = dashDirection * dashSpeed
 	player.move_and_slide()
 
 func _on_dash_finished() -> void:
 	if not player.is_on_floor():
 		transitioned.emit("Air")
 	else:
-		var dir = Input.get_axis("left", "right")
-		if dir!= 0:
-			transitioned.emit("Run")
-		else:
-			transitioned.emit("Idle")
+		transitioned.emit("Run" if inputDir!= 0 else "Idle")
