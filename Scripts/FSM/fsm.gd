@@ -4,6 +4,7 @@ class_name StateMachine
 @export var initial_state: State
 var current_state: State
 var states: Dictionary = {}
+var parent: Player
 
 func init(player: Player) -> void:
 	for child in get_children():
@@ -11,18 +12,21 @@ func init(player: Player) -> void:
 			states[child.name.to_lower()] = child
 			child.player = player
 			child.transitioned.connect(_on_state_transition)
+			parent = player
 	
 	if initial_state:
 		current_state = initial_state
 		current_state.enter()
-
+	else:
+		current_state = states.idle
+	
 func process_physics(delta: float) -> void:
 	if current_state:
-		current_state.process_physics(delta)
+		current_state.physics_update(delta)
 
 func process_input(event: InputEvent) -> void:
 	if current_state:
-		current_state.process_input(event)
+		current_state.input_update(event)
 
 func _on_state_transition(new_state_name: String) -> void:
 	var new_state = states.get(new_state_name.to_lower())
@@ -30,3 +34,4 @@ func _on_state_transition(new_state_name: String) -> void:
 		current_state.exit()
 		new_state.enter()
 		current_state = new_state
+		parent.stateName = new_state_name.to_lower()

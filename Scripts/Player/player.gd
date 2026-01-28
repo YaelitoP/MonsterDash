@@ -1,15 +1,20 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var state_machine: StateMachine = $FSM
-@onready var animations: AnimationPlayer = $AnimationPlayer
+@onready var stateMachine: StateMachine = $FSM
+@onready var animTree: AnimationTree = $AnimationTree
+@onready var visuals: Marker2D = $Visuals
+@onready var animPlayback: AnimationNodeStateMachinePlayback
+@export var inertiaDecay: float = 3.0
+
+var stateName: String = "idle"
+var animNode: String = "idle"
+var wallJumpInertia: float = 0.0
 
 func _ready() -> void:
-	# Inicializamos la máquina pasando una referencia del jugador a los estados
-	state_machine.init(self)
-
-func _unhandled_input(event: InputEvent) -> void:
-	state_machine.process_input(event)
+	animPlayback = animTree.get("parameters/playback")
+	stateMachine.init(self)
 
 func _physics_process(delta: float) -> void:
-	state_machine.process_physics(delta)
+	stateMachine.process_physics(delta)
+	

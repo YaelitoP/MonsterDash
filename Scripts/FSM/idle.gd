@@ -1,16 +1,18 @@
 extends GroundedState
 
 func enter() -> void:
-	player.animations.play("stand")
+	player.velocity.x = 0
+	player.animNode = "idle"
 
-func process_physics(delta: float) -> void:
-	# Ejecutamos primero la lógica de Grounded (el salto y la caída)
-	super.process_physics(delta)
-	
-	# Lógica específica de Idle: Frenar
-	player.velocity.x = move_toward(player.velocity.x, 0, 300.0)
+func physics_update(delta: float) -> void:
 	player.move_and_slide()
-
-	# Transición a Run
-	if Input.get_axis("ui_left", "ui_right")!= 0:
+	if Input.is_action_just_pressed("dash"):
+		transitioned.emit("Dash")
+		return
+		
+	super.physics_update(delta)
+	if player.is_on_wall_only():
+		transitioned.emit("wall")
+		return
+	if Input.get_axis("left", "right") != 0:
 		transitioned.emit("Run")

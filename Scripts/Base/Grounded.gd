@@ -1,14 +1,15 @@
 extends State
 class_name GroundedState
 
-# Lógica común para CUALQUIER estado en el suelo
-func process_physics(delta: float) -> void:
-	# Si dejas de tocar el suelo, vas a FALL (si tuvieras ese estado)
-	if not player.is_on_floor():
-		transitioned.emit("Fall")
+func physics_update(_delta: float) -> void:
+	if !player.is_on_floor():
+		transitioned.emit("Air")
 		return
-
-	# Lógica de SALTO centralizada: no necesitas repetirla en Idle ni en Run
-	if Input.is_action_just_pressed("ui_accept"):
-		player.velocity.y = -400.0 # JUMP_VELOCITY
-		transitioned.emit("Jump") # O el estado que tengas para saltar
+	
+	if Input.is_action_just_pressed("jump"):
+		player.velocity.y = -470.0
+		transitioned.emit("Air")
+	
+	if player.is_on_wall_only():
+		transitioned.emit("wall")
+		return
