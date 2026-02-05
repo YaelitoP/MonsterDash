@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://cts51u1y0omoj"]
+[gd_scene format=3 uid="uid://cts51u1y0omoj"]
 
 [ext_resource type="Texture2D" uid="uid://c526b0hjlwxok" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Dash.png" id="1_7dp3o"]
 [ext_resource type="Script" uid="uid://bbtjl72mldf17" path="res://Scripts/Player/player.gd" id="1_h4iuc"]
@@ -493,7 +493,7 @@ radius = 11.0
 height = 42.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olqyp"]
-size = Vector2(25, 3)
+size = Vector2(23, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11gg7"]
 atlas = ExtResource("1_7dp3o")
@@ -976,69 +976,76 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1273844680]
+z_index = 2
 collision_mask = 14
 script = ExtResource("1_h4iuc")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2035908414]
 tree_root = SubResource("AnimationNodeStateMachine_olqyp")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_nv4vc")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=637019193]
+libraries/ = SubResource("AnimationLibrary_nv4vc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1511795254]
 shape = SubResource("CapsuleShape2D_8gxox")
 
-[node name="Rays" type="Node2D" parent="CollisionShape2D"]
+[node name="Rays" type="Node2D" parent="CollisionShape2D" unique_id=62431439]
 position = Vector2(-3, 10)
 
-[node name="wallCheck" type="ShapeCast2D" parent="CollisionShape2D/Rays"]
+[node name="wallCheck" type="ShapeCast2D" parent="CollisionShape2D/Rays" unique_id=168912640]
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_olqyp")
 target_position = Vector2(0, 0)
 collision_mask = 2
 
-[node name="Visuals" type="Marker2D" parent="."]
+[node name="Visuals" type="Marker2D" parent="." unique_id=1870716605]
+position = Vector2(0, 1)
 scale = Vector2(-1, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=1632433880]
 position = Vector2(6, -1)
 sprite_frames = SubResource("SpriteFrames_v84ne")
-animation = &"WallSlide"
+animation = &""
 
-[node name="FSM" type="Node" parent="."]
+[node name="FSM" type="Node" parent="." unique_id=1666895524]
 script = ExtResource("16_fd4e3")
 
-[node name="idle" type="Node" parent="FSM"]
+[node name="idle" type="Node" parent="FSM" unique_id=1292135030]
 script = ExtResource("17_igrcy")
 
-[node name="run" type="Node" parent="FSM"]
+[node name="run" type="Node" parent="FSM" unique_id=1004810788]
 script = ExtResource("18_fs7ks")
 
-[node name="hurt" type="Node" parent="FSM"]
+[node name="hurt" type="Node" parent="FSM" unique_id=322211736]
 
-[node name="air" type="Node" parent="FSM"]
+[node name="air" type="Node" parent="FSM" unique_id=2022833272]
 script = ExtResource("19_l6n3p")
+air_speed = 230.0
+air_acceleration = 700.0
 
-[node name="wall" type="Node" parent="FSM" node_paths=PackedStringArray("wallShapeCast")]
+[node name="wall" type="Node" parent="FSM" unique_id=1729197684 node_paths=PackedStringArray("wallShapeCast")]
 script = ExtResource("19_olqyp")
+wallJumpPushback = 550.0
+wallJumpForce = -550.67
 wallShapeCast = NodePath("../../CollisionShape2D/Rays/wallCheck")
 
-[node name="dash" type="Node" parent="FSM"]
+[node name="dash" type="Node" parent="FSM" unique_id=1489877404]
 script = ExtResource("19_fs7ks")
+dashSpeed = 600.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.8, 2.8)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1374512051]
+zoom = Vector2(3, 3)
 process_callback = 0
-limit_enabled = false
+limit_bottom = 195
 position_smoothing_speed = 10.0
-drag_vertical_offset = -0.1
-drag_left_margin = 0.08
-drag_top_margin = 0.05
-drag_right_margin = 0.08
-drag_bottom_margin = 0.07
+drag_left_margin = 0.3
+drag_top_margin = 0.4
+drag_right_margin = 0.3
+drag_bottom_margin = 0.4
+editor_draw_drag_margin = true
 script = ExtResource("20_l6n3p")
+horizontal_speed = 7.0
+vertical_speed = 4.0
