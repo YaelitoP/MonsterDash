@@ -184,7 +184,7 @@ states/Start/position = Vector2(-371, 107)
 states/wallSlide/node = SubResource("AnimationNodeAnimation_wpjfl")
 states/wallSlide/position = Vector2(170, 166)
 transitions = ["Start", "Dash", SubResource("AnimationNodeStateMachineTransition_bi64h"), "Start", "Air", SubResource("AnimationNodeStateMachineTransition_qpa8y"), "Start", "Ground", SubResource("AnimationNodeStateMachineTransition_fs7ks"), "Ground", "Air", SubResource("AnimationNodeStateMachineTransition_l6n3p"), "Ground", "Dash", SubResource("AnimationNodeStateMachineTransition_2ijsl"), "Dash", "Air", SubResource("AnimationNodeStateMachineTransition_83xs0"), "Dash", "Ground", SubResource("AnimationNodeStateMachineTransition_wohnl"), "Air", "Dash", SubResource("AnimationNodeStateMachineTransition_olqyp"), "Air", "Ground", SubResource("AnimationNodeStateMachineTransition_p1odr"), "Start", "wallSlide", SubResource("AnimationNodeStateMachineTransition_11gg7"), "wallSlide", "Ground", SubResource("AnimationNodeStateMachineTransition_sbwqj"), "wallSlide", "Air", SubResource("AnimationNodeStateMachineTransition_7ldla"), "Air", "wallSlide", SubResource("AnimationNodeStateMachineTransition_r7t2e"), "Ground", "wallSlide", SubResource("AnimationNodeStateMachineTransition_nmr2m")]
-graph_offset = Vector2(182, -295)
+graph_offset = Vector2(-353, -240)
 
 [sub_resource type="Animation" id="Animation_l6n3p"]
 resource_name = "Dash"
@@ -493,7 +493,7 @@ radius = 11.0
 height = 42.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olqyp"]
-size = Vector2(23, 3)
+size = Vector2(24, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11gg7"]
 atlas = ExtResource("1_7dp3o")
@@ -977,8 +977,9 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1273844680]
-z_index = 2
 collision_mask = 14
+floor_constant_speed = true
+floor_snap_length = 4.0
 script = ExtResource("1_h4iuc")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=2035908414]
@@ -996,7 +997,7 @@ shape = SubResource("CapsuleShape2D_8gxox")
 position = Vector2(-3, 10)
 
 [node name="wallCheck" type="ShapeCast2D" parent="CollisionShape2D/Rays" unique_id=168912640]
-position = Vector2(3, 0)
+position = Vector2(3, 0.8)
 shape = SubResource("RectangleShape2D_olqyp")
 target_position = Vector2(0, 0)
 collision_mask = 2
@@ -1006,7 +1007,7 @@ position = Vector2(0, 1)
 scale = Vector2(-1, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=1632433880]
-position = Vector2(6, -1)
+position = Vector2(6, 0)
 sprite_frames = SubResource("SpriteFrames_v84ne")
 animation = &""
 
@@ -1028,8 +1029,9 @@ air_acceleration = 700.0
 
 [node name="wall" type="Node" parent="FSM" unique_id=1729197684 node_paths=PackedStringArray("wallShapeCast")]
 script = ExtResource("19_olqyp")
-wallJumpPushback = 550.0
-wallJumpForce = -550.67
+slideGravity = 200.0
+wallJumpPushback = 200.0
+wallJumpForce = -400.0
 wallShapeCast = NodePath("../../CollisionShape2D/Rays/wallCheck")
 
 [node name="dash" type="Node" parent="FSM" unique_id=1489877404]
@@ -1040,12 +1042,4 @@ dashSpeed = 600.0
 zoom = Vector2(3, 3)
 process_callback = 0
 limit_bottom = 195
-position_smoothing_speed = 10.0
-drag_left_margin = 0.3
-drag_top_margin = 0.4
-drag_right_margin = 0.3
-drag_bottom_margin = 0.4
-editor_draw_drag_margin = true
 script = ExtResource("20_l6n3p")
-horizontal_speed = 7.0
-vertical_speed = 4.0

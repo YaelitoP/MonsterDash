@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dotk1spuemjtc"]
+
+[ext_resource type="PackedScene" uid="uid://cxbmqocbyl76b" path="res://Scenes/first_map.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://cts51u1y0omoj" path="res://Scenes/player.tscn" id="2_qxrlw"]
+
+[node name="Game" type="Node2D" unique_id=1842564874]
+
+[node name="FirstMap" parent="." unique_id=165372010 instance=ExtResource("1_ebmjs")]
+
+[node name="Player" parent="." unique_id=1273844680 instance=ExtResource("2_qxrlw")]

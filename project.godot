@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="MonsterDash"
-run/main_scene="uid://cxbmqocbyl76b"
+run/main_scene="uid://dotk1spuemjtc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,11 +24,6 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
-
-[global_group]
-
-fall="Fall of map"
-limit="limit Of map"
 
 [input]
 
@@ -72,6 +67,8 @@ dash={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="World"
+2d_physics/layer_3="Limit"
+2d_physics/layer_4="Transition"
 
 [rendering]
 

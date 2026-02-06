@@ -9,7 +9,7 @@ extends WallState
 
 @export_group("Detección")
 @export var wallShapeCast: ShapeCast2D
-@export var wallOffsetCorrection: float = 4.3
+@export var wallOffsetCorrection: float = 6
 
 var wallDir : float = 0.0
 

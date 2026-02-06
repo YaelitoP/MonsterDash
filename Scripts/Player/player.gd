@@ -6,7 +6,8 @@ class_name Player
 @onready var visuals: Marker2D = $Visuals
 @onready var animPlayback: AnimationNodeStateMachinePlayback
 @export var inertiaDecay: float = 3.0
-
+@export var slow_climb_factor: float = 0.7
+@export var speed: float = 260.0
 var stateName: String = "idle"
 var animNode: String = "idle"
 var wallJumpInertia: float = 0.0
