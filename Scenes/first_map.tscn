@@ -423,41 +423,36 @@ transform = Transform2D(0.4, 0, 0, 0.4, 0, 0)
 follow_viewport_scale = 1.0
 
 [node name="SkyInfinity" parent="Parallax" index="0" unique_id=481778662]
-scroll_offset = Vector2(0, 4000)
-repeat_size = Vector2(1899.73, 0)
+scale = Vector2(6, 6)
 limit_begin = Vector2(-10000000, 0)
 limit_end = Vector2(10000000, 0)
 follow_viewport = false
 ignore_camera_scroll = true
 
-[node name="Sky" parent="Parallax" index="1" unique_id=1963554527]
-scroll_scale = Vector2(0.8, 0.9)
-scroll_offset = Vector2(0, 850)
-limit_begin = Vector2(-10000000, 0)
-limit_end = Vector2(10000000, 0)
-follow_viewport = false
+[node name="fog" parent="Parallax" index="1" unique_id=1680697953]
+scroll_scale = Vector2(0.95, 2)
 
 [node name="Mountain" parent="Parallax" index="2" unique_id=261557699]
-scroll_scale = Vector2(0.1, 0.8)
-scroll_offset = Vector2(0, 1200)
+scroll_scale = Vector2(0.65, 1.1)
 limit_begin = Vector2(-10000000, 0)
 limit_end = Vector2(10000000, 0)
 follow_viewport = false
 
 [node name="FarForest" parent="Parallax" index="3" unique_id=2136147962]
-scroll_offset = Vector2(0, 1350)
+scroll_scale = Vector2(1.5, 2)
 limit_begin = Vector2(-10000000, 0)
 limit_end = Vector2(10000000, 0)
 follow_viewport = false
 
 [node name="MiddleForest" parent="Parallax" index="4" unique_id=1070587061]
-scroll_offset = Vector2(0, 1450)
+scroll_scale = Vector2(4.5, 3)
 limit_begin = Vector2(-10000000, 0)
 limit_end = Vector2(10000000, 0)
 follow_viewport = false
 
 [node name="CloseForest" parent="Parallax" index="5" unique_id=820381498]
-scroll_offset = Vector2(0, 1650)
+modulate = Color(1, 1, 1, 1)
+scroll_scale = Vector2(9, 3)
 limit_begin = Vector2(-10000000, 0)
 limit_end = Vector2(10000000, 0)
 follow_viewport = false
