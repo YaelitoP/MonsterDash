@@ -3,6 +3,7 @@ extends State
 
 @export var dashSpeed: float = 800.0
 @export var dashDuration: float = 0.2
+@export var dashCooldownTime: float = 0.5
 var dashDirection: Vector2 = Vector2.ZERO
 var inputDir = Input.get_axis("left", "right")
 
@@ -22,10 +23,14 @@ func enter() -> void:
 	_on_dash_finished()
 
 func physics_update(_delta: float) -> void:
-	player.velocity = dashDirection * dashSpeed
+	if !player.is_on_floor():
+		player.velocity = dashDirection * dashSpeed/1.3
+	else:
+		player.velocity = dashDirection * dashSpeed
 	player.move_and_slide()
 
 func _on_dash_finished() -> void:
+	player.dashCooldown = dashCooldownTime
 	if not player.is_on_floor():
 		transitioned.emit("Air")
 	else:

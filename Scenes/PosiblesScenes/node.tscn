@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bmukhh1ftcdlf"]
+
+[ext_resource type="Texture2D" uid="uid://2cs7jvo54mwx" path="res://Assets/Posibles/mountainParallax/sky.png" id="1_r4nmu"]
+[ext_resource type="Texture2D" uid="uid://bsnswy6rx32ls" path="res://Assets/Posibles/mountainParallax/clouds_bg.png" id="2_873ey"]
+[ext_resource type="Texture2D" uid="uid://cphoil8vurga4" path="res://Assets/Posibles/mountainParallax/glacial_mountains.png" id="3_w6cka"]
+[ext_resource type="Texture2D" uid="uid://blbnhpwonre3i" path="res://Assets/Posibles/mountainParallax/clouds_mg_1.png" id="4_x2bpn"]
+[ext_resource type="Texture2D" uid="uid://b6kwms42vdmma" path="res://Assets/Posibles/mountainParallax/clouds_mg_2.png" id="5_43d8t"]
+[ext_resource type="Texture2D" uid="uid://oa6i1dwergrc" path="res://Assets/parallax/forest/forest_long.png" id="6_tloeg"]
+
+[node name="Node" type="CanvasLayer" unique_id=1936090495]
+layer = -1
+follow_viewport_scale = 0.8
+
+[node name="SkyInfinity" type="Parallax2D" parent="." unique_id=481778662]
+scale = Vector2(2, 2)
+repeat_size = Vector2(380, 200)
+repeat_times = 5
+
+[node name="Sprite" type="Sprite2D" parent="SkyInfinity" unique_id=675387177]
+modulate = Color(0.3254902, 0.6039216, 0.75686276, 1)
+texture = ExtResource("1_r4nmu")
+centered = false
+
+[node name="fog" type="Parallax2D" parent="." unique_id=1680697953]
+repeat_size = Vector2(380, 0)
+repeat_times = 13
+
+[node name="Sprite" type="Sprite2D" parent="fog" unique_id=1245905997]
+texture = ExtResource("2_873ey")
+centered = false
+
+[node name="Mountain" type="Parallax2D" parent="." unique_id=261557699]
+repeat_size = Vector2(380, 0)
+repeat_times = 5
+
+[node name="Sprite" type="Sprite2D" parent="Mountain" unique_id=1360988651]
+texture = ExtResource("3_w6cka")
+centered = false
+offset = Vector2(0, -200)
+
+[node name="FarForest" type="Parallax2D" parent="." unique_id=2136147962]
+repeat_size = Vector2(380, 0)
+repeat_times = 5
+
+[node name="Sprite" type="Sprite2D" parent="FarForest" unique_id=915812802]
+texture = ExtResource("4_x2bpn")
+centered = false
+offset = Vector2(0, -700)
+
+[node name="MiddleForest" type="Parallax2D" parent="." unique_id=1070587061]
+repeat_size = Vector2(380, 0)
+repeat_times = 5
+
+[node name="Sprite" type="Sprite2D" parent="MiddleForest" unique_id=662889442]
+texture = ExtResource("5_43d8t")
+centered = false
+offset = Vector2(0, -1200)
+
+[node name="CloseForest" type="Parallax2D" parent="." unique_id=820381498]
+visible = false
+repeat_size = Vector2(1900, 0)
+repeat_times = 5
+
+[node name="Sprite" type="Sprite2D" parent="CloseForest" unique_id=843623392]
+texture = ExtResource("6_tloeg")
+centered = false
