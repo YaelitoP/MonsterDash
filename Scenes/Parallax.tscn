@@ -13,7 +13,6 @@ follow_viewport_scale = 0.8
 
 [node name="SkyInfinity" type="Parallax2D" parent="." unique_id=481778662]
 scale = Vector2(2, 2)
-scroll_scale = Vector2(0, 0)
 repeat_times = 5
 
 [node name="Sprite" type="Sprite2D" parent="SkyInfinity" unique_id=675387177]
@@ -22,8 +21,7 @@ texture = ExtResource("1_53x5a")
 centered = false
 
 [node name="fog" type="Parallax2D" parent="." unique_id=1680697953]
-scroll_scale = Vector2(0.95, 0.85)
-repeat_size = Vector2(1900, 0)
+repeat_size = Vector2(950, 0)
 repeat_times = 13
 
 [node name="Sprite" type="Sprite2D" parent="fog" unique_id=1245905997]
@@ -31,8 +29,7 @@ texture = ExtResource("4_kfw77")
 centered = false
 
 [node name="Mountain" type="Parallax2D" parent="." unique_id=261557699]
-scroll_scale = Vector2(0.65, 1)
-repeat_size = Vector2(3790, 0)
+repeat_size = Vector2(1890, 0)
 repeat_times = 5
 
 [node name="Sprite" type="Sprite2D" parent="Mountain" unique_id=1360988651]
@@ -41,8 +38,7 @@ centered = false
 offset = Vector2(0, -200)
 
 [node name="FarForest" type="Parallax2D" parent="." unique_id=2136147962]
-scroll_scale = Vector2(1.5, 0.8)
-repeat_size = Vector2(3800, 0)
+repeat_size = Vector2(1900, 0)
 repeat_times = 5
 
 [node name="Sprite" type="Sprite2D" parent="FarForest" unique_id=915812802]
@@ -51,8 +47,7 @@ centered = false
 offset = Vector2(0, -700)
 
 [node name="MiddleForest" type="Parallax2D" parent="." unique_id=1070587061]
-scroll_scale = Vector2(4.5, 0.6)
-repeat_size = Vector2(3800, 0)
+repeat_size = Vector2(1900, 0)
 repeat_times = 5
 
 [node name="Sprite" type="Sprite2D" parent="MiddleForest" unique_id=662889442]
@@ -61,9 +56,7 @@ centered = false
 offset = Vector2(0, -1200)
 
 [node name="CloseForest" type="Parallax2D" parent="." unique_id=820381498]
-modulate = Color(1, 1, 1, 0.27450982)
-scroll_scale = Vector2(9, 0.5)
-repeat_size = Vector2(3800, 0)
+repeat_size = Vector2(1900, 0)
 repeat_times = 5
 
 [node name="Sprite" type="Sprite2D" parent="CloseForest" unique_id=843623392]

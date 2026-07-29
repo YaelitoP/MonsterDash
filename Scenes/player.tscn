@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://cts51u1y0omoj"]
 
-[ext_resource type="Texture2D" uid="uid://c526b0hjlwxok" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Dash.png" id="1_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://c526b0hjlwxok" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_Dash.png" id="1_7dp3o"]
 [ext_resource type="Script" uid="uid://bbtjl72mldf17" path="res://Scripts/Player/player.gd" id="1_h4iuc"]
-[ext_resource type="Texture2D" uid="uid://cms7qgpr7lmgh" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Jump.png" id="2_h4iuc"]
-[ext_resource type="Texture2D" uid="uid://df7bymio3s6or" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_JumpFallInbetween.png" id="3_fd4e3"]
-[ext_resource type="Texture2D" uid="uid://d2uwc3u43pjk2" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Roll.png" id="4_qqcod"]
-[ext_resource type="Texture2D" uid="uid://cuwpheg7nnc32" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Run.png" id="5_igrcy"]
-[ext_resource type="Texture2D" uid="uid://2731y7q02nyd" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_SlideTransitionStart.png" id="6_fs7ks"]
-[ext_resource type="Texture2D" uid="uid://cgge3s3tm55bg" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_SlideFull.png" id="7_l6n3p"]
-[ext_resource type="Texture2D" uid="uid://x0sna1sxgsdt" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_SlideTransitionEnd.png" id="8_olqyp"]
-[ext_resource type="Texture2D" uid="uid://s36hieecin32" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Idle.png" id="9_wpjfl"]
-[ext_resource type="Texture2D" uid="uid://d3i64p2qo8vtj" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_WallClimbNoMovement.png" id="12_p1odr"]
-[ext_resource type="Texture2D" uid="uid://bai0ai8e7cc1j" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_WallHang.png" id="13_0gysh"]
-[ext_resource type="Texture2D" uid="uid://cj1kjl6xa4kun" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_Fall.png" id="14_fs7ks"]
-[ext_resource type="Texture2D" uid="uid://dj6qohmp3j8br" path="res://Assets/FreeKnight_v1/Colour1/Outline/120x80_PNGSheets/_WallSlide.png" id="14_vfarp"]
+[ext_resource type="Texture2D" uid="uid://cms7qgpr7lmgh" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_Jump.png" id="2_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://df7bymio3s6or" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_JumpFallInbetween.png" id="3_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://d2uwc3u43pjk2" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_Roll.png" id="4_qqcod"]
+[ext_resource type="Texture2D" uid="uid://cuwpheg7nnc32" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_Run.png" id="5_igrcy"]
+[ext_resource type="Texture2D" uid="uid://2731y7q02nyd" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_SlideTransitionStart.png" id="6_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://cgge3s3tm55bg" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_SlideFull.png" id="7_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://x0sna1sxgsdt" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_SlideTransitionEnd.png" id="8_olqyp"]
+[ext_resource type="Texture2D" uid="uid://s36hieecin32" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_Idle.png" id="9_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://d3i64p2qo8vtj" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_WallClimbNoMovement.png" id="12_p1odr"]
+[ext_resource type="Texture2D" uid="uid://bai0ai8e7cc1j" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_WallHang.png" id="13_0gysh"]
+[ext_resource type="Texture2D" uid="uid://cj1kjl6xa4kun" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_Fall.png" id="14_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://dj6qohmp3j8br" path="res://Assets/Character Sprites/Colour1/Outline/120x80_PNGSheets/_WallSlide.png" id="14_vfarp"]
 [ext_resource type="Script" uid="uid://bptojgrdl4g14" path="res://Scripts/FSM/fsm.gd" id="16_fd4e3"]
 [ext_resource type="Script" uid="uid://dh48ejxvysbww" path="res://Scripts/FSM/idle.gd" id="17_igrcy"]
 [ext_resource type="Script" uid="uid://cqj54exi7gxl6" path="res://Scripts/FSM/run.gd" id="18_fs7ks"]
@@ -111,7 +111,7 @@ states/Stand/position = Vector2(365, 13)
 states/run/node = SubResource("AnimationNodeAnimation_0gysh")
 states/run/position = Vector2(365, 177)
 transitions = ["Start", "Stand", SubResource("AnimationNodeStateMachineTransition_xwi16"), "Start", "run", SubResource("AnimationNodeStateMachineTransition_sweqm"), "run", "End", SubResource("AnimationNodeStateMachineTransition_ph33w"), "Stand", "End", SubResource("AnimationNodeStateMachineTransition_wpjfl"), "Stand", "run", SubResource("AnimationNodeStateMachineTransition_yh6i2"), "run", "Stand", SubResource("AnimationNodeStateMachineTransition_8gxox")]
-graph_offset = Vector2(63, -64)
+graph_offset = Vector2(-68.039894, -64)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wpjfl"]
 animation = &"wallSlide"
@@ -184,7 +184,7 @@ states/Start/position = Vector2(-371, 107)
 states/wallSlide/node = SubResource("AnimationNodeAnimation_wpjfl")
 states/wallSlide/position = Vector2(170, 166)
 transitions = ["Start", "Dash", SubResource("AnimationNodeStateMachineTransition_bi64h"), "Start", "Air", SubResource("AnimationNodeStateMachineTransition_qpa8y"), "Start", "Ground", SubResource("AnimationNodeStateMachineTransition_fs7ks"), "Ground", "Air", SubResource("AnimationNodeStateMachineTransition_l6n3p"), "Ground", "Dash", SubResource("AnimationNodeStateMachineTransition_2ijsl"), "Dash", "Air", SubResource("AnimationNodeStateMachineTransition_83xs0"), "Dash", "Ground", SubResource("AnimationNodeStateMachineTransition_wohnl"), "Air", "Dash", SubResource("AnimationNodeStateMachineTransition_olqyp"), "Air", "Ground", SubResource("AnimationNodeStateMachineTransition_p1odr"), "Start", "wallSlide", SubResource("AnimationNodeStateMachineTransition_11gg7"), "wallSlide", "Ground", SubResource("AnimationNodeStateMachineTransition_sbwqj"), "wallSlide", "Air", SubResource("AnimationNodeStateMachineTransition_7ldla"), "Air", "wallSlide", SubResource("AnimationNodeStateMachineTransition_r7t2e"), "Ground", "wallSlide", SubResource("AnimationNodeStateMachineTransition_nmr2m")]
-graph_offset = Vector2(-353, -240)
+graph_offset = Vector2(-277.50882, -240)
 
 [sub_resource type="Animation" id="Animation_l6n3p"]
 resource_name = "Dash"
@@ -495,6 +495,10 @@ height = 42.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olqyp"]
 size = Vector2(24, 3)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 11.5
+height = 42.5
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_11gg7"]
 atlas = ExtResource("1_7dp3o")
 region = Rect2(0, 40, 120, 40)
@@ -740,7 +744,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qpa8y")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dash",
 "speed": 10.0
 }, {
@@ -754,7 +758,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sweqm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Jump",
 "speed": 10.0
 }, {
@@ -795,7 +799,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pukcj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Roll",
 "speed": 15.0
 }, {
@@ -830,7 +834,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nuaet")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run",
 "speed": 7.5
 }, {
@@ -838,7 +842,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bqbau")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SlideDown",
 "speed": 5.0
 }, {
@@ -855,7 +859,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_by7i4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SlideFull",
 "speed": 8.0
 }, {
@@ -863,7 +867,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3uvy8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SlideStand",
 "speed": 5.0
 }, {
@@ -898,7 +902,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h5cax")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Stand",
 "speed": 7.5
 }, {
@@ -924,7 +928,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0gysh")
 }],
-"loop": true,
+"loop": 1,
 "name": &"WallClimb",
 "speed": 10.0
 }, {
@@ -932,7 +936,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ramv3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"WallHang",
 "speed": 5.0
 }, {
@@ -946,7 +950,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yh6i2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"WallSlide",
 "speed": 5.0
 }, {
@@ -960,7 +964,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_83xs0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fall",
 "speed": 8.0
 }, {
@@ -971,7 +975,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xuaoq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fallBetween",
 "speed": 5.0
 }]
@@ -1001,6 +1005,14 @@ position = Vector2(3, 0.8)
 shape = SubResource("RectangleShape2D_olqyp")
 target_position = Vector2(0, 0)
 collision_mask = 2
+
+[node name="AreaDetector" type="Area2D" parent="." unique_id=814876827]
+position = Vector2(20, 2)
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector" unique_id=1158551773]
+position = Vector2(-20, -2)
+shape = SubResource("CapsuleShape2D_g4v7s")
 
 [node name="Visuals" type="Marker2D" parent="." unique_id=1870716605]
 position = Vector2(0, 1)
@@ -1036,10 +1048,12 @@ wallShapeCast = NodePath("../../CollisionShape2D/Rays/wallCheck")
 
 [node name="dash" type="Node" parent="FSM" unique_id=1489877404]
 script = ExtResource("19_fs7ks")
-dashSpeed = 600.0
+dashDuration = 0.16
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1374512051]
 zoom = Vector2(3, 3)
 process_callback = 0
 limit_bottom = 195
 script = ExtResource("20_l6n3p")
+
+[connection signal="area_entered" from="AreaDetector" to="." method="_on_area_entered"]

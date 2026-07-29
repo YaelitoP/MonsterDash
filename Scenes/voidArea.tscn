@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cbmw0nfg4rrs3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(5000, 10)
+
+[node name="Area2D" type="Area2D" unique_id=743863450 groups=["MAPLIMIT"]]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1142113245 groups=["MAPLIMIT"]]
+shape = SubResource("RectangleShape2D_g4v7s")

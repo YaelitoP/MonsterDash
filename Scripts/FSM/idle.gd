@@ -6,10 +6,7 @@ func enter() -> void:
 
 func physics_update(delta: float) -> void:
 	player.move_and_slide()
-	if Input.is_action_just_pressed("dash"):
-		transitioned.emit("Dash")
-		return
-		
+	
 	super.physics_update(delta)
 	if player.is_on_wall_only():
 		transitioned.emit("wall")

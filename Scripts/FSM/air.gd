@@ -9,10 +9,7 @@ func enter() -> void:
 func physics_update(delta: float) -> void:
 	player.velocity.y += gravity * delta
 	player.move_and_slide()
-	if Input.is_action_just_pressed("dash"):
-		transitioned.emit("Dash")
-		return
-		
+	
 	var direction = Input.get_axis("left", "right")
 	var target_speed = direction * air_speed
 	
@@ -23,14 +20,14 @@ func physics_update(delta: float) -> void:
 	else:
 		player.velocity.x = move_toward(player.velocity.x, target_speed, air_acceleration * delta)
 	
-	
 	if direction != 0:
 		player.visuals.scale.x = sign(direction)
-	
 	
 	_check_transitions()
 
 func _check_transitions() -> void:
+	if Input.is_action_just_pressed("dash") && player.dashCooldown <= 0:
+		transitioned.emit("Dash")
 	if player.is_on_wall_only():
 		transitioned.emit("wall")
 	elif player.is_on_floor():
